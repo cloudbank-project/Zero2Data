@@ -5,7 +5,7 @@ Let's just build a data service that has no data source as such. You send it a n
 
 ```
 # From Zero2Data / Simple data service on AWS
-# In browser: https://kep5pu8n09.execute-api.us-west-2.amazonaws.com/default/primefactors?n=4700
+# In browser using the provided endpoint: https://kep5pu8n09.execute-api.us-west-2.amazonaws.com/default/primefactors?n=4700
 
 import json
 
@@ -31,4 +31,4 @@ def lambda_handler(event, context):
     for i in range(npf - 1): return_msg += str(prime_factors[i]) + ' * '
     return_msg += str(int(prime_factors[npf - 1]))
     return { "statusCode": 200, "body": return_msg }
-    ```
+```
