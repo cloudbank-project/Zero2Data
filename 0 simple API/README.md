@@ -9,6 +9,8 @@ as it is one of the simplest available.
 
 ## Tutorial
 
+* Start an EC2 instance (with keypair file in hand): Typically free tier, like a T2 micro.
+* Log in to this instance.
 
 * Install Anaconda
     * Search `install Anaconda Linux` and follow the instructions
