@@ -26,3 +26,6 @@ as it is one of the simplest available.
     
 
 Working from [this link](https://bottlepy.org/docs/dev/tutorial.html) at the moment. 
+
+At this point hello world does not work using the open URL as described 
+in the [Deployment doc](https://bottlepy.org/docs/dev/deployment.html).
