@@ -19,7 +19,7 @@ as it is one of the simplest available.
         * `export PATH=~/anaconda3/bin:$PATH`
 
 
-* Install `bottle`, a lightweight Python web server
+* Install `bottle`, a lightweight Python web framework
     * `pip install bottle`
     
 
