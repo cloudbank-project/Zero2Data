@@ -50,8 +50,9 @@ platforms (GCP, Azure, etcetera). The main idea is to store the data in a table 
 task that receives a data query and replies with data.
 
 
-* **What?** The 
-table access API will return query results (HTML or JSON). 
+* **What?** 
+    - The basic API will receive a status string and return a response string
+    - The table access API will return query results (HTML or JSON) 
 
 
 ### Philosophical
