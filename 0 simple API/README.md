@@ -50,17 +50,20 @@ specifically from `task=5`. In fact multiple such key-value pairs can be include
 separated by the `&` character in the URL. 
 
 
-The `{ "task" : "5" }` key value pair arrives at the server's route-function
-`exchange_numbers()` as an HTTP GET. Key = `task`, value = `5`. The code 
-anticipates this and assigns the value as a string to `task_value`. This value plus 17 
-is returned; so the Client will receive `42`. 
-Print statements that show the progression on the server side.
+Here is the Client test code: 
 
 
-The point: Python code runs as a Client on the internet and interacts dynamically with a Server
-by means of the Bottle web framework installed on an AWS EC2 instance. 
-Latencies as high as 100ms to as low as 5ms were found. The low latency unsurprisingly
-was from another EC2 instance.
+```
+import requests
+import time
+
+tic = time.time(); add_37 = requests.get('http://54.69.30.193:8080/exchange?task=' + str(5)).text; toc = time.time()
+
+print(add_37)
+print(1000.*(toc-tic))
+```
+
+Here is the corresponding Server code, with remarks to follow. 
 
 
 ```
@@ -84,3 +87,19 @@ def exchange_numbers():
 
 run(host='0.0.0.0', port=8080, reloader=True)
 ```
+
+
+A `{ "task" : "5" }` key-value pair arrives at the server's route-function
+`exchange_numbers()` as an HTTP GET. The code 
+anticipates the `task` key and assigns the value as a string to `task_value`. This value plus 37 
+is returned; so the Client will receive `42`. 
+Print statements show the progression on the server side.
+
+
+The point: Python code runs as a Client on any computer connected to the internet.
+The program interacts dynamically with a Server running the Python Bottle web framework.
+In our case this Server code runs on an AWS EC2 instance. 
+Typical latencies ranged from 5 to 100 milliseconds. Lower latency unsurprisingly
+was from another EC2 instance acting as the Client.
+
+
