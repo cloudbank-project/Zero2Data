@@ -57,7 +57,7 @@ Here is the Client test code:
 import requests
 import time
 
-tic = time.time(); add_37 = requests.get('http://54.69.30.193:8080/exchange?task=' + str(5)).text; toc = time.time()
+tic = time.time(); add_37 = requests.get('http://12.23.34.45:8080/exchange?task=' + str(5)).text; toc = time.time()
 
 print(add_37)
 print(1000.*(toc-tic))
