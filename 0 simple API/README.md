@@ -67,27 +67,20 @@ Here is the corresponding Server code, with remarks to follow.
 
 
 ```
-from bottle import request, route, run, template
+from bottle import request, route, run
 import json
 
 @route('/hello')
 def hello():
-    print('site was hit on route "hello"')
     return 'be swell and have two or three 3.14s'
 
 @route('/exchange', method='GET')
 def exchange_numbers():
-    print("                  EXCHANGE was hit")
     task_value = request.GET.task.strip()
-    print('task_value is', task_value, 'with type', type(task_value))
-    task_integer = int(task_value)
-    new_integer = task_integer + 37
-    print(type(task_integer), task_integer, 'becomes ->', new_integer)
-    return str(new_integer)
+    return str(int(task_value) + 37)
 
 run(host='0.0.0.0', port=8080, reloader=True)
 ```
-
 
 A `{ "task" : "5" }` key-value pair arrives at the server's route-function
 `exchange_numbers()` as an HTTP GET. The code 
